@@ -43,9 +43,9 @@ public class Robot extends IterativeRobot {
 	public void robotInit() {
 		oi = new OI();
 		driver = new DriveTrain();
-		oneSwitch = new DigitalInput(RobotMap.ONE_SWITCH);
-		twoSwitch = new DigitalInput(RobotMap.TWO_SWITCH);
-		prevCheck = -1;
+		//oneSwitch = new DigitalInput(RobotMap.ONE_SWITCH);
+		//twoSwitch = new DigitalInput(RobotMap.TWO_SWITCH);
+		//prevCheck = -1;
 	}
 
 	/**
