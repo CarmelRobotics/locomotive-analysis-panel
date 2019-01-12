@@ -1,18 +1,16 @@
-package org.usfirst.frc.team2035.robot.subsystems;
+package frc.robot.subsystems;
 
-import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.SpeedController;
-import edu.wpi.first.wpilibj.VictorSP;
-import edu.wpi.first.wpilibj.Talon;
-import edu.wpi.first.wpilibj.drive.DifferentialDrive;
-import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.SpeedControllerGroup;
-import org.usfirst.frc.team2035.robot.RobotMap;
+import edu.wpi.first.wpilibj.VictorSP;
+import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 
 /**
  * drive train for the test bot.
- * @author Robbie Paul 
+ * 
+ * @author Robbie Paul
  */
 public class DriveTrain extends Subsystem {
 
@@ -21,8 +19,8 @@ public class DriveTrain extends Subsystem {
     private SpeedController motorBLeft;
     //private SpeedController motorFRight;
     //private SpeedController motorBRight;
-    private SpeedControllerGroup motorLeft;
-    private SpeedControllerGroup motorRight;
+    //private SpeedControllerGroup motorLeft;
+    //private SpeedControllerGroup motorRight;
     private DifferentialDrive drive;
         
     public DriveTrain() {
