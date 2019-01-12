@@ -17,10 +17,8 @@ public class DriveTrain extends Subsystem {
 
     private static Joystick stick;
     private SpeedController motorFLeft;
-    private SpeedController motorMLeft;
     private SpeedController motorBLeft;
     private SpeedController motorFRight;
-    private SpeedController motorMRight;
     private SpeedController motorBRight;
     private SpeedControllerGroup motorLeft;
     private SpeedControllerGroup motorRight;
@@ -30,14 +28,12 @@ public class DriveTrain extends Subsystem {
     	super("Drive Train");
     	stick = new Joystick(RobotMap.JOYSTICK1_USB_NUM);
     	motorFLeft = new VictorSP(RobotMap.F_LEFT_MOTOR_PWM);
-    	motorMLeft = new VictorSP(RobotMap.M_LEFT_MOTOR_PWM);
     	motorBLeft = new VictorSP(RobotMap.B_LEFT_MOTOR_PWM);
     	motorFRight = new VictorSP(RobotMap.F_RIGHT_MOTOR_PWM);
-    	motorMRight= new VictorSP(RobotMap.M_RIGHT_MOTOR_PWM);
     	motorBRight = new VictorSP(RobotMap.B_RIGHT_MOTOR_PWM);
     	
-    	motorLeft = new SpeedControllerGroup(motorFLeft, motorMLeft, motorBLeft);
-    	motorRight = new SpeedControllerGroup(motorFRight, motorMRight, motorBRight);
+    	motorLeft = new SpeedControllerGroup(motorFLeft, motorBLeft);
+    	motorRight = new SpeedControllerGroup(motorFRight, motorBRight);
     	
     	drive = new DifferentialDrive(motorLeft, motorRight);
     	
