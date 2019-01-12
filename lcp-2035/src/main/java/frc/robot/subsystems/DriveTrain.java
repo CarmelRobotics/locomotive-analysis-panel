@@ -4,6 +4,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.SpeedController;
 import edu.wpi.first.wpilibj.VictorSP;
+import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.SpeedControllerGroup;
@@ -27,10 +28,10 @@ public class DriveTrain extends Subsystem {
     public DriveTrain() {
     	super("Drive Train");
     	stick = new Joystick(RobotMap.JOYSTICK1_USB_NUM);
-    	motorFLeft = new VictorSP(RobotMap.F_LEFT_MOTOR_PWM);
-    	motorBLeft = new VictorSP(RobotMap.B_LEFT_MOTOR_PWM);
-    	motorFRight = new VictorSP(RobotMap.F_RIGHT_MOTOR_PWM);
-    	motorBRight = new VictorSP(RobotMap.B_RIGHT_MOTOR_PWM);
+    	motorFLeft = new VictorSP(1);
+    	motorBLeft = new VictorSP(2);
+    	motorFRight = new Talon(3);
+    	motorBRight = new VictorSP(4);
     	
     	motorLeft = new SpeedControllerGroup(motorFLeft, motorBLeft);
     	motorRight = new SpeedControllerGroup(motorFRight, motorBRight);
