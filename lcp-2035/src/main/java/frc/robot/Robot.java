@@ -10,6 +10,7 @@ package frc.robot;
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import frc.robot.subsystems.DriveTrain;
+import edu.wpi.first.wpilibj.command.Scheduler;
 /**
  * The VM is configured to automatically run this class, and to call the
  * functions corresponding to each mode, as described in the TimedRobot
@@ -91,6 +92,7 @@ public class Robot extends IterativeRobot {
 	public void teleopPeriodic() {
 		Scheduler.getInstance().run();//This line is what causes teleop to loop through multiple times
 		driver.arcadeDrive();
+	}
 	/**
 	 * This function is called periodically during test mode.
 	 */
