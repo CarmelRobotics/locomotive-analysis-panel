@@ -8,7 +8,7 @@
 package frc.robot;
 
 import edu.wpi.first.wpilibj.DigitalInput;
-import edu.wpi.first.wpilibj.IterativeRobot;
+import edu.wpi.first.wpilibj.TimedRobot;
 import frc.robot.subsystems.DriveTrain;
 import edu.wpi.first.wpilibj.command.Scheduler;
 /**
@@ -18,7 +18,7 @@ import edu.wpi.first.wpilibj.command.Scheduler;
  * creating this project, you must also update the build.properties file in the
  * project.
  */
-public class Robot extends IterativeRobot {
+public class Robot extends TimedRobot {
 	//Subsystems
 	public static DriveTrain driver;
 
@@ -52,7 +52,7 @@ public class Robot extends IterativeRobot {
 
 	@Override
 	public void disabledPeriodic() {
-
+		Scheduler.getInstance().run();
 	}
 
 	
