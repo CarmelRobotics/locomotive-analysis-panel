@@ -4,7 +4,7 @@ import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.SpeedController;
 import edu.wpi.first.wpilibj.SpeedControllerGroup;
 import edu.wpi.first.wpilibj.VictorSP;
-import edu.wpi.first.wpilibj.PWMVictorSPX;
+
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 
@@ -28,14 +28,14 @@ public class DriveTrain extends Subsystem {
     	super("Drive Train");
     	stick = new Joystick(1);
     	motorFLeft = new VictorSP(1);
-    	motorBLeft = new PWMVictorSPX(0);
-    	motorFRight = new VictorSP(3);
-    	motorBRight = new PWMVictorSPX(4);
+    	motorBLeft = new VictorSP(0);
+    	motorFRight = new VictorSP(2);
+    	motorBRight = new VictorSP(3);
     	
     	motorLeft = new SpeedControllerGroup(motorFLeft, motorBLeft);
     	motorRight = new SpeedControllerGroup(motorFRight, motorBRight);
     	
-    	drive = new DifferentialDrive(motorLeft, motorRight);
+		drive = new DifferentialDrive(motorLeft, motorRight);
     	
     }
 
@@ -45,7 +45,7 @@ public class DriveTrain extends Subsystem {
 		
 	}
 	public void arcadeDrive() {
-		drive.arcadeDrive(-stick.getY(), -stick.getX(), true);
+		drive.arcadeDrive(-stick.getY(), +stick.getX(), true);
 	}
     
 }
