@@ -1,9 +1,6 @@
 package frc.robot.subsystems;
-
-import edu.wpi.first.wpilibj.Joystick;
-import edu.wpi.first.wpilibj.SpeedController;
-import edu.wpi.first.wpilibj.SpeedControllerGroup;
-import edu.wpi.first.wpilibj.VictorSP;
+import com.revrobotics.CANSparkMax;
+import com.revrobotics.CANSparkMaxLowLevel.*;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
@@ -15,27 +12,14 @@ import edu.wpi.first.wpilibj.drive.DifferentialDrive;
  */
 public class DriveTrain extends Subsystem {
 
-    private static Joystick stick;
-    private SpeedController motorFLeft;
-    private SpeedController motorBLeft;
-    private SpeedController motorFRight;
-    private SpeedController motorBRight;
-    private SpeedControllerGroup motorLeft;
-    private SpeedControllerGroup motorRight;
+    
     private DifferentialDrive drive;
-        
+	private CANSparkMax spark1;
+
+
     public DriveTrain() {
-    	super("Drive Train");
-    	stick = new Joystick(1);
-    	motorFLeft = new VictorSP(1);
-    	motorBLeft = new VictorSP(0);
-    	motorFRight = new VictorSP(2);
-    	motorBRight = new VictorSP(3);
-    	
-    	motorLeft = new SpeedControllerGroup(motorFLeft, motorBLeft);
-    	motorRight = new SpeedControllerGroup(motorFRight, motorBRight);
-    	
-		drive = new DifferentialDrive(motorLeft, motorRight);
+    	super("Drive Train");  	
+    	spark1= new CANSparkMax(0, MotorType.kBrushless);
     	
     }
 
@@ -45,7 +29,7 @@ public class DriveTrain extends Subsystem {
 		
 	}
 	public void arcadeDrive() {
-		drive.arcadeDrive(-stick.getY(), +stick.getX(), true);
+		spark1.set(1.0);
 	}
     
 }
