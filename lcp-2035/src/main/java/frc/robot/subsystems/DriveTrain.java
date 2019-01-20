@@ -28,17 +28,18 @@ public class DriveTrain extends Subsystem {
     public DriveTrain() {
     	super("Drive Train");  	
     	FLSpark = new CANSparkMax(RobotMap.FRONT_LEFT_CAN, MotorType.kBrushless);
-    	FRSpark= new CANSparkMax(RobotMap.FRONT_RIGHT_CAN, MotorType.kBrushless);
+		FRSpark= new CANSparkMax(RobotMap.FRONT_RIGHT_CAN, MotorType.kBrushless);
 		BLSpark = new CANSparkMax(RobotMap.BACK_LEFT_CAN, MotorType.kBrushless);
 		BRSpark = new CANSparkMax(RobotMap.BACK_RIGHT_CAN, MotorType.kBrushless);
 
 		RGroup = new SpeedControllerGroup(FRSpark, BRSpark);
 		LGroup = new SpeedControllerGroup(FLSpark, BLSpark);
-
 		drive = new DifferentialDrive(LGroup, RGroup);
-		jStick = new Joystick(RobotMap.JOYSTICK_ONE_USB);
-	}
 
+		jStick = new Joystick(RobotMap.JOYSTICK_ONE_USB);
+		
+	}
+ 
 
 
 	@Override
@@ -47,7 +48,7 @@ public class DriveTrain extends Subsystem {
 		
 	}
 	public void arcadeDrive() {
-		drive.arcadeDrive(jStick.getX(), jStick.getY());
+		drive.arcadeDrive(-jStick.getX(), -jStick.getY(), true);
 	}
     
 }
