@@ -48,7 +48,7 @@ public class DriveTrain extends Subsystem {
 		
 	}
 	public void arcadeDrive() {
-		drive.arcadeDrive(-jStick.getX(), -jStick.getY(), true);
+		drive.arcadeDrive(jStick.getX(), jStick.getY());
 	}
     
 }
